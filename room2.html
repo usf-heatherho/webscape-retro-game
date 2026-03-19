@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head> 
+        <meta charset="UTF-8">
+        <title>Color Power Up</title>
+        <link rel="stylesheet" href="assets/common.css">
+        <style>
+            .start {
+                background-image: url('assets/room2_background.png');
+            }
+            /* Displays book elements next to door */
+            .book-choices {
+                display: flex; 
+                justify-content: center;
+                gap: 40px;
+                margin-left: auto ;
+            }
+            /* Sets each books visual */
+            .book-item {
+                width: 70px;
+                height: 200px;
+                background-color: #AAAAAA;
+                border: 5px solid #666666;
+                cursor: pointer;
+                position: relative;
+            }
+            /* Creates a red shadow around book when clicked */
+            #book1:checked + .book-item,
+            #book2:checked + .book-item,
+            #book3:checked + .book-item,
+            #book4:checked + .book-item,
+            #book5:checked + .book-item {
+                box-shadow: 0 0 15px red; 
+                transform: translateY(-5px); 
+            }
+            /* Sets a unique color for each book */
+            #book1 + .book-item {
+                background-color: red; 
+                box-shadow: 0 0 15px white;
+                transform: translateY(-5px); 
+            }
+            #book2 + .book-item {
+                background-color: blue; 
+                box-shadow: 0 0 15px white;
+                transform: translateY(-5px); 
+            }
+            #book3 + .book-item {
+                background-color: green; 
+                box-shadow: 0 0 15px white;
+                transform: translateY(-5px); 
+            }
+            #book4 + .book-item {
+                background-color: #FFD700; 
+                box-shadow: 0 0 15px white;
+                transform: translateY(-5px); 
+            }
+            #book5 + .book-item {
+                background-color: purple; 
+                box-shadow: 0 0 15px white;
+                transform: translateY(-5px); 
+            }
+            /* Door opens when the 2 correct books are checked */
+            #secret-lock:checked ~ .door-container #the-door {
+                transform: rotateY(110deg); 
+            }
+            /* Next level button appears when 2 correct books are checked */
+            #secret-lock:checked ~ .next-room-button {
+                opacity: 1;
+                z-index: 4;
+                transition: opacity 2.5s ease-in;
+            }
+            /* Sets button location */
+            .next-room-button {
+                left: 68%;
+            }
+        </style>
+        
+    </head>
+
+    <body>
+        <header>
+            👾Retro Game Escape - Color Power Up
+        </header>
+
+        <main class="start">
+            
+
+            <input type="checkbox" id="secret-lock" class="hidden-key">
+    
+            <div class="book-choices">
+                
+                <input type="checkbox" id="book1" class="hidden-key">
+                <label for="book1" class="book-item" data-item="1" title="Fire Flower"></label>
+
+                <input type="checkbox" id="book2" class="hidden-key">
+                <label for="book2" class="book-item" data-item="2" title="Star"></label>
+
+                <input type="checkbox" id="book3" class="hidden-key">
+                <label for="book3" class="book-item" data-item="3" title="Mushroom"></label>
+
+                <input type="checkbox" id="book4" class="hidden-key">
+                <label for="book4" class="book-item" data-item="4" title="Coin"></label>
+
+                <input type="checkbox" id="book5" class="hidden-key">
+                <label for="book5" class="book-item" data-item="5" title="Mystery"></label>
+                
+            </div>
+            <div class="door-container">
+                <div class="door" id="the-door"></div>
+            </div>
+            <button class="next-room-button" onclick="document.location='room3.html'">
+                <strong>Enter the Next Room ➡️</strong>
+            </button>
+            <script src="assets/room2.js"></script>
+
+            
+        </main>
+        <details class="hint">
+            <summary>Show Instructions/Hints</summary>
+            <p>You have found your way into a passage with five different books to choose from. You must select the <strong><u>2 correct</u></strong> books in order to unlock the door.</p>
+            <ul>
+                <li>What is the color of the sun?</li>
+                <li>What color do you get when you mix red and blue?</li>
+                <li>Book4 and Book5!</li>
+            </ul>
+        </details>
+
+        <footer>
+            Retro Game Escape Project | Built with HTML + CSS only &copy Heather HO
+        </footer>
+    </body>
+</html>

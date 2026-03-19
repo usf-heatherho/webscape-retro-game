@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head> 
+        <meta charset="UTF-8">
+        <title>The Hidden Coin</title>
+        <link rel="stylesheet" href="assets/common.css">
+        <style>
+            .start {
+                background-image: url('assets/room1_background.jpg');
+            }
+            /* Sets location for button */
+            .next-room-button {
+                top: 50%; 
+                left: 44.1%;
+            }
+            /* Next level button appears after key found (Hidden till level is solved.)*/
+            #key-found:checked ~ .next-room-button {
+                opacity: 1; 
+                z-index: 4;
+                transition: opacity 2.5s ease-in;
+            }
+            /* 
+                The door rotates on a Y-axis. We set the transform-origin to 'left' 
+                so it swings open like a real hinge rather than spinning in the center. 
+            */
+            #key-found:checked ~ .door-container #the-door {
+                transform: rotateY(110deg); 
+            }
+        </style>
+    </head>
+
+    <body>
+        <header>
+            👾Retro Game Escape - The Hidden Coin
+        </header>
+
+        <main class="puzzle-area and start">
+            
+            <!-- State Management:
+                A hidden checkbox following the hidden-key class is used to track if the key has been selected by the player. 
+                This allows for triggering CSS animations (like opening the door) and using the sibling selector (~) without needing JS. 
+            -->
+            <input type="checkbox" id="key-found" class="hidden-key">
+            
+            <label for="key-found" class="hidden-key-element" 
+                title="CLICK TO OPEN THE DOOR!">
+            </label>
+            
+            <div class="door-container">
+                <div class="door" id="the-door"></div>
+            </div>
+            
+            <button class="next-room-button" onclick="document.location='room2.html'">
+                <strong>Enter the Next Room ➡️</strong>
+            </button>
+            
+        </main>
+
+        <details class="hint">
+            <summary>Show Instructions/Hints</summary>
+            <p>You've entered the first level to your journey in escaping this virtual reality. You make an attempt at opening the door but it is locked...</p>
+            <ul>
+                <li>Take a look at the room and see what stands out the most to you in quantity.</li>
+                <li>Which coin could it be?</li>
+                <li>Could it be somewhere up above in the middle of two others?</li>
+            </ul>
+        </details>
+
+        <footer>
+            Retro Game Escape Project | Built with HTML + CSS only &copy Heather HO
+        </footer>
+    </body>
+</html>

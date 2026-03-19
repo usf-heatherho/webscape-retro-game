@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head> 
+        <meta charset="UTF-8">
+        <title>The Right Controller</title>
+        <link rel="stylesheet" href="assets/common.css">
+        <style>
+            .start {
+                background-image: url('assets/room3_background.jpg');
+            }
+            /* Sets controller object height */
+            img {
+                height: 90px;
+            }
+            /* Sets style for controller objects */
+            .moving-item {
+                position: absolute;
+                width: 100px;
+                height: 100px;
+                font-size: 0.9em;
+                font-weight: bold;
+                color: #000000;
+                cursor: pointer;
+                transition: box-shadow 0.3s ease-in-out;
+                border-radius: 50px;
+                z-index: 23;
+                left: 100px;
+                top: 200px;
+            }
+            /* Gives a glow to the controller that is hovered to help players decipher specific controller*/
+            .moving-item:hover {
+                box-shadow: 0 0 15px 5px #fafafa;
+                border-radius: 50px;
+            }
+            /* Sets the style for text box hints for each controller, but is initially hidden to allow players to find the correct remote*/
+            .clue-text {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                opacity: 0; 
+                font-size: 0.7em;
+                white-space: nowrap;
+                padding: 5px;
+                background-color: rgba(0, 0, 0, 0.8);
+                color: white;
+                border-radius: 5px;
+                transition: opacity 0.5s; 
+                transform-origin: top left;
+            }
+            /* Shows the text box when hovered */
+            .moving-item:hover .clue-text {
+                opacity: 1;
+            }
+            /* 
+                All controllers follow the same animation (bounceAndRotate), but have different animation properties and timing to make them move differently.
+            */
+            @keyframes bounceAndRotate {
+                0% { transform: translate(50px, 600px) rotate(0deg); }
+                50% { transform: translate(600px, -10px) rotate(180deg) scale(1.1); }
+                100% { transform: translate(1000px, 200px) rotate(360deg); }
+            }
+            /* The correct object uses the first animation */
+            .correct-object {
+                animation: bounceAndRotate 8s linear 0.3s infinite;
+            }
+            /* Decoy uses a different animation */
+            .decoy-one {
+                animation: bounceAndRotate 10s ease-in-out 0.5s infinite alternate-reverse
+            }
+            /* Decoy 2 uses a variation on a simpler rotation */
+            .decoy-two {
+                animation: bounceAndRotate 7s linear 1s infinite reverse; 
+            }
+            /* Door opens when the target fragment is in the URL */
+            #room3-complete:target ~ .door-container #the-door {
+                transform: rotateY(110deg); 
+            }
+            /* Next Level Button opens when target fragment is in the URL */
+            #room3-complete:target ~ .next-room-button {
+                opacity: 1;
+                z-index: 4;
+                transition: opacity 2.5s ease-in;
+            }
+            /* Sets the door location */
+            .door-container {
+                position: absolute;
+                right: 200px;
+            }
+            /* Sets button location */
+            .next-room-button {
+                right: 190px;
+            }
+
+        </style>
+    </head>
+
+    <body>
+        <header>
+            👾Retro Game Escape - The Right Controller
+        </header>
+
+        <main class="start and puzzle-area">
+            
+            <div id="room3-complete" style="position: absolute; visibility: hidden;"></div>
+            <!-- 
+                When the Correct Object is hovered, the moving-item class will set the highlight style class on it and 
+                the clue-text class will display the correct text over it
+            -->
+            <a href="#room3-complete" class="moving-item correct-object">
+                <img src="assets/room3_controller_object.png" alt="Correct Controller">
+                <span class="clue-text">THE CORRECT TARGET!</span>
+            </a>
+
+            <!-- Decoy One -->
+            <div class="moving-item decoy-one">
+                <img src="assets/room3_controller_object.png" alt="Wrong Controller 1">
+                <span class="clue-text">SO CLOSE!</span>
+            </div>
+
+            <!-- Decoy-Two -->
+            <div class="moving-item decoy-two">
+                <img src="assets/room3_controller_object.png" alt="Wrong Controller 2">
+                <span class="clue-text">WRONG ONE!</span>
+            </div>
+
+            <!-- Door and button set up -->
+            <div class="door-container">
+                <div class="door" id="the-door"></div>
+                                <button class="next-room-button" onclick="document.location='room4.html'">
+                    <strong>Enter the Next Room ➡️</strong>
+            </div>
+            <button class="next-room-button" onclick="document.location='room4.html'">
+                <strong>Enter the Next Room ➡️</strong>
+            </button>
+        </main>
+
+        <details class="hint">
+            <summary>Show Instructions/Hints</summary>
+            <p>As you get closer to the finish line. You start to imagine more unbelievable things. Why are there floating controllers?</p>
+            <ul>
+                <li>Select the correct controller to <strong>escape</strong> the room.</li>
+                <li>Hover for a clue.</li>
+                <li>The answer may be right in front of you.</li>
+            </ul>
+        </details>
+
+        <footer>
+            Retro Game Escape Project | Built with HTML + CSS only &copy Heather HO
+        </footer>
+    </body>
+</html>

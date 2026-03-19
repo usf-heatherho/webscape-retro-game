@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head> 
+        <meta charset="UTF-8">
+        <title>Escaped!</title>
+        <link rel="stylesheet" href="assets/common.css">
+        <style>
+            p {
+                text-align: center;
+            }
+            /* styling for the semi-transparent text box */
+            .content-box {
+                padding: 10px;
+                height: 80%;
+                width: 100;
+                margin: 10px;
+                justify-content: center;
+                background-color: rgba(0, 0, 0, 0.8);
+                text-align: center;
+                align-items: center;
+            }
+            /* button styling during static */
+            button {
+                background-color: cyan;
+                color: white;
+            }
+            /* button styling on hover */
+            button:hover {
+                box-shadow: 0 0 20px #fff, 0 0 30px  #FFFF00;
+            }
+            /* Class for fade in animation */
+            .fade {
+                font-size: 0px;
+                animation: appear;
+                animation-duration: 3s;
+                animation-fill-mode: forwards;
+            }
+            /* Animation for text fade in */
+            @keyframes appear {
+                0% {
+                    font-size: 0px;
+                } 
+                100% {
+                    font-size: 20px;
+                }
+            }
+            /* Class for halo effect on h1 */
+            .halo {
+                animation: glow 1.5s ease-in-out infinite alternate;
+            }
+            /* Animation for halo effect */
+            @keyframes glow {
+                0% {
+                    text-shadow: 0 0 20px #fff, 0 0 30px  #FFFF00, 0 0 40px #e60073;
+                }
+                100% {
+                    text-shadow: 0 0 30px  #FFFF00, 0 0 40px #fff, 0 0 50px #ff4da6;
+                }
+            }
+        </style>
+    </head>
+
+    <body>
+        <header>
+            👾Retro Game Escape - You Escaped!
+        </header>
+
+        <main class="fade content-box">
+            <h1 class="halo">You Escaped the Video Game! </h1>
+            <p>Congratulations on making your way through the retro game! You solved all the problems and made it back to the real world. Now you can tell everyone about your crazy experience... but will anyone believe you?</p>
+            <!-- User will be directed back to the start page once button is clicked -->
+            <button onclick="document.location='index.html'" class="fade">Return to Start</button>
+        </main>
+
+        <footer>
+            Retro Game Escape Project | Built with HTML + CSS only &copy Heather Ho
+        </footer>
+    </body>
+</html>

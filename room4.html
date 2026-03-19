@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head> 
+        <meta charset="UTF-8">
+        <title>The Final Step</title>
+        <link rel="stylesheet" href="assets/common.css">
+        <style>
+            .start {
+                background-image: url('assets/room4_background.jpg');
+            }
+            /* Sets image style and location */
+            label > img {
+                opacity: 0;
+                height: 40px;
+                margin-top: 100px;
+                margin-left: 1000px;
+            }
+            /* Image will glow and slightly show on hover */
+            img:hover {
+                cursor: pointer;
+                box-shadow: 0 0 20px 20px #fafafa, 0 0 10px 10px #fff700;
+                transition: box-shadow 0.5s ease-in-out;
+                opacity: 0.5;
+            }
+            /* Keeps the door in the middle of the screen */
+            .door-container {
+                position: absolute;
+            }
+            /* Door opens when glitch is found */
+            #glitched-tile-found:checked ~ .door-container #the-door {
+                transform: rotateY(110deg); 
+            }
+            /* Button appears when glitch is found */
+            #glitched-tile-found:checked ~ .next-room-button {
+                opacity: 1;
+                z-index: 4;
+                transition: opacity 2.5s ease-in;
+            }
+            /* Sets location for button */
+            .next-room-button {
+                position: absolute;
+                justify-content: center;
+                width: auto;
+                opacity: 0;
+            }
+        </style>
+    </head>
+
+    <body>
+        <header>
+            👾Retro Game Escape - The Final Step
+        </header>
+
+        <main class="start">
+            <input type="checkbox" id="glitched-tile-found" class="hidden-key">
+            <label for="glitched-tile-found" class="glitched-tile-target">
+                <img src="assets/room4_lightning_glitch.jpg" alt="glitched">
+            </label>
+
+            <div class="door-container">
+                <div class="door" id="the-door"></div>
+            </div>
+            <button class="next-room-button" onclick="document.location='escape.html'">
+                <strong>ESCAPE! ➡️</strong>
+            </button>
+        </main>
+
+        <details class="hint">
+            <summary>Show Instructions/Hints</summary>
+            <p>Is it starting to look crazier or is it just me? Where even am I?</p>
+            <ul>
+                <li>There has to be a tile in here that will open this door.</li>
+                <li>It is aligned close to the door knob, from the right of the door</li>
+                <li>2 blocks from the right, 9 blocks from the bottom!</li>
+            </ul>
+        </details>
+
+        <footer>
+            Retro Game Escape Project | Built with HTML + CSS only &copy Heather HO
+        </footer>
+    </body>
+</html>

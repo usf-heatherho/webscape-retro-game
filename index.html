@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head> 
+        <meta charset="UTF-8">
+        <title>Retro Game Escape</title>
+        <link rel="stylesheet" href="assets/common.css">
+        <style>
+            .start {
+                background-image: url('assets/index_background1.jpg');
+            }
+            button:hover {
+                text-transform: uppercase;
+                transform: scale(1.2);
+            }
+            /* styling for the semi-transparent text box */
+            .content-box {
+                padding: 20px;
+                height: 80%;
+                width: 80%;
+                justify-content: center;
+                background-color: rgba(0, 0, 0, 0.8);
+                text-align: left;
+                align-items: center;
+            }
+        </style>
+    </head>
+
+    <body>
+        <header>
+            👾Retro Game Escape
+        </header>
+
+        <main class="start">
+            <div class="content-box">
+                <h1>Welcome, Gamer!</h1>
+                <p>You have found yourself trapped in a world beyond what you know. Why are there game machines everywhere? Your goal is to escape by going through a series of challenges to get through each room.</p>
+
+                <h2>📑 How to Play</h2>
+                <ul>
+                    <li>You must solve the problems of each room that is presented to you to find the escape!</li>
+                    <li>Once you find the last escape room... you can finally escape this video game!</li>
+                    <li>Most importantly, <strong>GOOD LUCK and HAVE FUN!</strong></li>
+                </ul>
+                <button onclick="document.location='room1.html'"><strong>Let's Get Out Of Here!</strong></button>
+            </div>
+        </main>
+
+        <footer>
+            Retro Game Escape Project | Built with HTML + CSS only &copy Heather HO
+        </footer>
+    </body>
+</html>
