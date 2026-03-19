@@ -1,8 +1,10 @@
 # 👾 Web'scape: A Retro-Themed Virtual Escape Room Game
 Web'scape is a browser-based interactive escape room experience, that challenges 
-players to navigate four distinct rooms using environmental clues and logic-driven puzzles.
+players to navigate four distinct rooms using clues and logic-driven puzzles.
 
 The project emphasizes semantic HTML, advanced CSS state management, and DOM-based puzzle logic.
+
+![Game Start Screen](assets/start_screen.png)
 
 ---
 ## ▶️ Live Demo 
@@ -46,3 +48,9 @@ The Room 2 Keypad Lock was developed using a specific JavaScript logic-gate:
     ├── common.css       # Global Styles & Retro Typography
     └── room2-logic.js  # Puzzle validation logic
 ```
+
+---
+## 🧠 Lessons Learned
+* **User Experience (UX)**: Designing puzzles that are challenging but intuitive taught me the importance of visual feedback (changing cursor types, color shifts on hover).
+
+* **Modular CSS**: Using a single common.css file for shared retro elements (borders, fonts) while allowing room-specific styles kept the codebase DRY (Don't Repeat Yourself).
