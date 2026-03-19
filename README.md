@@ -1,5 +1,5 @@
 # 👾 Web'scape: A Retro-Themed Virtual Escape Room Game
-Web'scape is a browser-based interactive escape room experience, that challenges 
+Retro Game Escape is a browser-based interactive escape room experience, that challenges 
 players to navigate four distinct rooms using clues and logic-driven puzzles.
 
 The project emphasizes semantic HTML, advanced CSS state management, and DOM-based puzzle logic.
