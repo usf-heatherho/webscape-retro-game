@@ -9,7 +9,7 @@ The project emphasizes semantic HTML, advanced CSS state management, and DOM-bas
 ---
 ## ▶️ Live Demo 
 
-###  🎉[Click Here to play!](https://usf-heatherho.github.io/webscape-retro-game/)
+###  👉 [Click Here to play!](https://usf-heatherho.github.io/webscape-retro-game/)
 
 Each room level has escape hints at the bottom of each page.
 
